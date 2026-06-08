@@ -1,0 +1,129 @@
+:root {
+    --bg:        #141210;   /* warm near-black, faintly toward brown */
+    --bg-lift:   #1a1714;   /* code surfaces, lifted a hair off the page */
+    --fg:        #e7e4dc;   /* soft off-white, only a hint of warmth */
+    --muted:     #948f84;   /* neutral warm grey for metadata */
+    --faint:     #6a665d;   /* still quieter — rules, hairlines as text */
+    --accent:    #c8bd9b;   /* pale champagne, desaturated off the gold */
+    --link:      #d9cfb4;   /* soft sand, a touch brighter than accent */
+    --link-line: #555041;   /* underline hairline under links */
+    --code-bg:   #1a1714;
+    --border:    #2a251d;   /* hairline, warm */
+    --maxw:      42rem;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 18px; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: "Source Serif 4", Charter, "Iowan Old Style", Georgia, Cambria, "Times New Roman", serif;
+    font-size: 1.02rem;
+    font-weight: 400;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Header / nav --------------------------------------------------------- */
+header nav {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 2rem 1.4rem 1.4rem;
+    display: flex;
+    gap: 1.6rem;
+    align-items: baseline;
+}
+
+header nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.06em;
+    text-transform: lowercase;
+    transition: color 0.2s ease;
+}
+header nav a:hover { color: var(--fg); }
+
+.site-title {
+    margin-right: auto;
+    color: var(--accent) !important;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    font-variant: small-caps;
+}
+
+/* Main column ---------------------------------------------------------- */
+main {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 2.5rem 1.4rem 4rem;
+}
+
+h1, h2, h3 {
+    color: #f4f1ea;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+h1 { font-size: 1.75rem; margin: 0 0 0.6rem; }
+h2 { font-size: 1.3rem;  margin-top: 2.6rem; }
+h3 { font-size: 1.1rem;  margin-top: 2rem; }
+
+p { margin: 0 0 1.15rem; }
+
+/* Links ---------------------------------------------------------------- */
+a {
+    color: var(--link);
+    text-decoration: none;
+    border-bottom: 1px solid var(--link-line);
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+a:hover { border-bottom-color: var(--link); }
+
+.meta, .date {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-style: italic;
+}
+article header .meta { margin: -0.2rem 0 2rem; }
+
+/* Note listings -------------------------------------------------------- */
+.post-list { list-style: none; padding: 0; margin: 1.5rem 0; }
+.post-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+}
+.post-list li:last-child { border-bottom: none; }
+.post-list li a { border-bottom: none; }
+.post-list li a:hover { color: var(--accent); }
+
+/* Code ----------------------------------------------------------------- */
+code {
+    background: var(--code-bg);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+    font-size: 0.84em;
+    font-family: "SFMono-Regular", "JetBrains Mono", Menlo, Consolas, monospace;
+}
+pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.05rem 1.2rem;
+    overflow-x: auto;
+    line-height: 1.55;
+}
+pre code { background: none; padding: 0; font-size: 0.82rem; }
+
+/* Display math shouldn't overflow on mobile */
+mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }

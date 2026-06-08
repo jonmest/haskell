@@ -1,0 +1,16 @@
+name:        haskell-notes
+version:     0.1.0.0
+synopsis:    Static site for Haskell & category theory notes
+github:      jonmest/haskell
+
+dependencies:
+  - base >= 4.7 && < 5
+  - hakyll
+  - pandoc
+
+executables:
+  site:
+    main:        site.hs
+    source-dirs: .
+    ghc-options:
+      - -threaded
